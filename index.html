@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="星火自律 iOS App 隐私政策：习惯与打卡数据仅保存在设备本地，不收集个人信息；语音识别由 Apple 系统服务提供，App 不保存录音。">
+<meta name="robots" content="index, follow">
+<title>星火自律 隐私政策</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F6F1E7'/%3E%3Ccircle cx='32' cy='32' r='13' fill='%23F86F4B'/%3E%3Cellipse cx='32' cy='32' rx='26' ry='9' fill='none' stroke='%235FBE9F' stroke-width='3' transform='rotate(-18 32 32)'/%3E%3C/svg%3E">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #F6F1E7;
+  --surface: #FFFCF6;
+  --surface-2: rgba(30, 38, 56, 0.045);
+  --ink: #1E2638;
+  --muted: #5B6270;
+  --line: rgba(30, 38, 56, 0.13);
+  --accent: #F86F4B;
+  --link: #B84427;
+  --mint: #2F8F73;
+  --shadow: 0 1px 2px rgba(30, 38, 56, 0.04), 0 14px 36px rgba(30, 38, 56, 0.06);
+  --ph-bg: #FFE7A8;
+  --ph-ink: #6B4800;
+  --ph-line: #C08A00;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F131A;
+    --surface: #161B24;
+    --surface-2: rgba(236, 230, 218, 0.055);
+    --ink: #ECE6DA;
+    --muted: #A2AAB8;
+    --line: rgba(236, 230, 218, 0.14);
+    --accent: #FF8A63;
+    --link: #FFA184;
+    --mint: #6FD3B0;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 16px 40px rgba(0, 0, 0, 0.22);
+    --ph-bg: #3B2D0C;
+    --ph-ink: #FFD98A;
+    --ph-line: #8A6A1E;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(900px 520px at 88% -8%, rgba(248, 111, 75, 0.16), transparent 62%),
+    radial-gradient(760px 460px at -6% 2%, rgba(95, 190, 159, 0.14), transparent 58%),
+    var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(248, 111, 75, 0.24);
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 20;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 14px;
+}
+.skip-link:focus { top: 16px; }
+
+a {
+  color: var(--link);
+  text-decoration-color: color-mix(in srgb, var(--link) 40%, transparent);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::before {
+  width: 620px;
+  height: 620px;
+  right: -180px;
+  top: -330px;
+  background: radial-gradient(circle at 42% 45%, rgba(248, 111, 75, 0.28), transparent 64%);
+}
+.hero::after {
+  width: 520px;
+  height: 520px;
+  left: -220px;
+  bottom: -340px;
+  background: radial-gradient(circle at 50% 50%, rgba(95, 190, 159, 0.22), transparent 66%);
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 64px 28px 46px;
+}
+.hero-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.doc-mark {
+  width: 42px;
+  height: 42px;
+  flex: none;
+}
+.eyebrow {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.17em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+h1 {
+  margin: 0;
+  font-size: clamp(38px, 5.4vw, 58px);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  font-weight: 700;
+}
+.subtitle {
+  margin: 16px 0 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+.meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+.chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 13px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 12.5px;
+  color: var(--ink);
+}
+.chip-label {
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+/* ---------- layout ---------- */
+.page {
+  display: grid;
+  grid-template-columns: 218px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 54px 28px 96px;
+}
+.content {
+  min-width: 0;
+  max-width: 800px;
+}
+
+/* ---------- toc ---------- */
+.toc {
+  position: sticky;
+  top: 30px;
+  align-self: start;
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+  padding-right: 6px;
+  scrollbar-width: thin;
+}
+.toc-title {
+  margin: 2px 0 14px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--line);
+}
+.toc-list li { margin: 0; }
+.toc-list a {
+  display: block;
+  margin-left: -1px;
+  padding: 7px 0 7px 15px;
+  border-left: 2px solid transparent;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.toc-list a:hover {
+  color: var(--ink);
+  border-left-color: var(--accent);
+}
+.toc-mobile {
+  display: none;
+  margin: 0 0 30px;
+  padding: 2px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.toc-mobile summary {
+  cursor: pointer;
+  padding: 13px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.toc-mobile summary::marker { color: var(--accent); }
+.toc-mobile .toc-list {
+  border-left: 0;
+  padding-bottom: 10px;
+}
+.toc-mobile .toc-list a { padding-left: 0; }
+
+/* ---------- content typography ---------- */
+.intro p {
+  font-size: 17px;
+  line-height: 1.95;
+  color: var(--ink);
+}
+.intro p:first-child {
+  font-size: 18px;
+  line-height: 1.9;
+}
+.intro p:last-child { margin-bottom: 0; }
+
+.policy-section { margin: 0; }
+h2 {
+  margin: 60px 0 20px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  font-size: clamp(22px, 2.5vw, 26px);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+  scroll-margin-top: 24px;
+}
+.policy-section:first-of-type h2 { margin-top: 46px; }
+
+h3 {
+  margin: 32px 0 10px;
+  font-size: 17px;
+  line-height: 1.55;
+  font-weight: 600;
+  scroll-margin-top: 24px;
+}
+h3::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 9px;
+  border-radius: 50%;
+  background: var(--mint);
+  vertical-align: 3px;
+}
+
+p { margin: 0 0 18px; }
+strong { font-weight: 600; color: var(--ink); }
+
+ul, ol { margin: 0 0 20px; padding-left: 1.35em; }
+li { margin: 9px 0; padding-left: 2px; }
+li::marker { color: var(--accent); }
+li > strong:first-child { color: var(--ink); }
+
+code {
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.86em;
+  word-break: break-word;
+}
+
+hr {
+  margin: 46px 0 26px;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- summary ---------- */
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 24px 0 8px;
+}
+.summary-card {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.summary-q {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.summary-q::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+}
+.summary-a {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink);
+}
+
+/* ---------- tables ---------- */
+.table-wrap {
+  margin: 22px 0 28px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--surface-2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+td {
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+td:first-child { color: var(--ink); }
+tbody tr:last-child td { border-bottom: 0; }
+
+/* ---------- placeholders ---------- */
+.ph {
+  padding: 0 3px;
+  border-bottom: 1px dashed var(--ph-line);
+  border-radius: 4px;
+  background: var(--ph-bg);
+  color: var(--ph-ink);
+  font-weight: 600;
+}
+
+/* ---------- footer ---------- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--surface);
+}
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 18px 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 34px 28px 54px;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-weight: 600;
+}
+.footer-brand .doc-mark { width: 24px; height: 24px; }
+.footer-meta { margin: 0; }
+.footer-meta span + span::before {
+  content: "·";
+  margin: 0 8px;
+  color: var(--muted);
+}
+.back-top {
+  color: var(--muted);
+  text-decoration: none;
+}
+.back-top:hover { color: var(--ink); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .page { grid-template-columns: 180px minmax(0, 1fr); gap: 42px; }
+}
+@media (max-width: 860px) {
+  .page { display: block; padding-top: 34px; }
+  .toc { display: none; }
+  .toc-mobile { display: block; }
+  .content { max-width: none; }
+  .hero-inner { padding-top: 48px; }
+}
+@media (max-width: 640px) {
+  body { font-size: 15.5px; line-height: 1.88; }
+  .hero-inner { padding: 40px 20px 34px; }
+  .page { padding: 28px 20px 72px; }
+  h1 { font-size: 38px; }
+  .subtitle { font-size: 14.5px; }
+  h2 { margin-top: 48px; padding-top: 24px; font-size: 22px; }
+  h3 { font-size: 16.5px; }
+  .intro p, .intro p:first-child { font-size: 16px; }
+  .summary-grid { grid-template-columns: 1fr; }
+  .summary-card { padding: 16px 17px; }
+  table { min-width: 520px; }
+  th, td { padding: 12px 14px; }
+  .footer-inner { padding: 28px 20px 46px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- print ---------- */
+@media print {
+  @page { margin: 18mm 16mm; }
+  :root {
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-2: #F4F4F4;
+    --ink: #111111;
+    --muted: #444444;
+    --line: #D8D8D8;
+    --link: #111111;
+    --shadow: none;
+  }
+  body {
+    background: #FFFFFF !important;
+    font-size: 10.5pt;
+    line-height: 1.7;
+  }
+  .skip-link, .toc, .toc-mobile, .hero::before, .hero::after, .back-top {
+    display: none !important;
+  }
+  .hero-inner { padding: 0 0 18px; }
+  h1 { font-size: 28pt; }
+  .subtitle { margin-top: 8px; font-size: 11pt; }
+  .meta-row { margin-top: 14px; }
+  .chip { box-shadow: none; }
+  .page {
+    display: block;
+    max-width: none;
+    padding: 24px 0 0;
+  }
+  .content { max-width: none; }
+  h2 {
+    margin-top: 22pt;
+    padding-top: 12pt;
+    font-size: 15pt;
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+  h3 { break-after: avoid; page-break-after: avoid; }
+  .summary-grid { grid-template-columns: 1fr 1fr; gap: 8pt; }
+  .summary-card { box-shadow: none; padding: 10pt 12pt; }
+  .table-wrap { box-shadow: none; }
+  table { min-width: 0; }
+  th, td { padding: 6pt 8pt; font-size: 9pt; }
+  .summary-card, .table-wrap, tr, li { break-inside: avoid; page-break-inside: avoid; }
+  a { color: #111111; text-decoration: none; }
+  .ph {
+    background: none;
+    border-bottom: 1px dashed #888888;
+    color: #111111;
+  }
+}
+</style>
+</head>
+<body id="top">
+<a class="skip-link" href="#content">跳到正文</a>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-head">
+      <svg class="doc-mark" viewBox="0 0 48 48" role="img" aria-label="星火自律">
+        <circle cx="24" cy="24" r="10" fill="#F86F4B"/>
+        <ellipse cx="24" cy="24" rx="20" ry="7.5" fill="none" stroke="#2F8F73" stroke-width="2" transform="rotate(-18 24 24)"/>
+        <circle cx="41" cy="10" r="2.2" fill="#F7C64A"/>
+      </svg>
+      <p class="eyebrow">Spark Discipline · 法律文件</p>
+    </div>
+    <h1>隐私政策</h1>
+    <p class="subtitle">星火自律 · iOS App · 适用于 iOS 17.0 及以上版本</p>
+    <div class="meta-row"><span class="chip"><span class="chip-label">生效日期</span>2026 年 10 月 28 日</span><span class="chip"><span class="chip-label">最后更新</span>2026 年 10 月 28 日</span><span class="chip"><span class="chip-label">版本</span>1.0</span></div>
+  </div>
+</header>
+
+<div class="page">
+  <nav class="toc" aria-label="目录">
+    <p class="toc-title">目录</p>
+    <ol class="toc-list"><li><a href="#s1">一页看懂</a></li><li><a href="#s2">适用范围</a></li><li><a href="#s3">运营者与联系方式</a></li><li><a href="#s4">我们处理哪些信息</a></li><li><a href="#s5">系统权限说明</a></li><li><a href="#s6">处理目的与法律依据</a></li><li><a href="#s7">共享、转让与公开披露</a></li><li><a href="#s8">存储地点与保存期限</a></li><li><a href="#s9">数据安全</a></li><li><a href="#s10">你的权利</a></li><li><a href="#s11">儿童隐私</a></li><li><a href="#s12">第三方服务</a></li><li><a href="#s13">与 App Store 隐私标签的一致性</a></li><li><a href="#s14">本政策的更新</a></li><li><a href="#s15">联系我们</a></li><li><a href="#s16">附录：常用操作路径</a></li></ol>
+  </nav>
+
+  <main class="content" id="content">
+    <details class="toc-mobile">
+      <summary>查看目录</summary>
+      <ol class="toc-list"><li><a href="#s1">一页看懂</a></li><li><a href="#s2">适用范围</a></li><li><a href="#s3">运营者与联系方式</a></li><li><a href="#s4">我们处理哪些信息</a></li><li><a href="#s5">系统权限说明</a></li><li><a href="#s6">处理目的与法律依据</a></li><li><a href="#s7">共享、转让与公开披露</a></li><li><a href="#s8">存储地点与保存期限</a></li><li><a href="#s9">数据安全</a></li><li><a href="#s10">你的权利</a></li><li><a href="#s11">儿童隐私</a></li><li><a href="#s12">第三方服务</a></li><li><a href="#s13">与 App Store 隐私标签的一致性</a></li><li><a href="#s14">本政策的更新</a></li><li><a href="#s15">联系我们</a></li><li><a href="#s16">附录：常用操作路径</a></li></ol>
+    </details>
+
+    <div class="intro"><p>本政策适用于 iOS App「星火自律」（英文名 Spark Discipline，Bundle ID：<code>com.senlee.Habit-Tools</code>，以下简称“本 App”）。本 App 由 Lisen（以下简称“我们”）提供。</p><p>我们为小学生及其家长设计本 App，并刻意采用“数据不出设备”的原则：<strong>本 App 没有账号体系，不设开发者服务器，不会把你的习惯、打卡或语音数据上传给我们。</strong> 请在使用前阅读本政策，特别是关于语音识别和儿童隐私的说明。</p></div>
+    <section class="policy-section" aria-labelledby="s1"><h2 id="s1">一页看懂</h2><div class="summary-grid"><div class="summary-card"><p class="summary-q">App 会收集我的个人信息吗？</p><p class="summary-a">不会。本 App 不要求注册，不收集姓名、手机号、邮箱、位置、通讯录等信息。</p></div><div class="summary-card"><p class="summary-q">我的习惯和打卡数据存在哪里？</p><p class="summary-a">只存在你的 iPhone 本地 App 沙盒中，不会上传到我们的服务器。</p></div><div class="summary-card"><p class="summary-q">语音打卡会保存录音吗？</p><p class="summary-a">不会。录音仅用于当次识别，不写入文件；识别文本仅保存在内存中，不写入打卡数据。</p></div><div class="summary-card"><p class="summary-q">语音由谁识别？</p><p class="summary-a">由 Apple 的 <code>Speech</code> 系统框架识别，可能在本机或 Apple 服务器完成，受 Apple 隐私政策约束。</p></div><div class="summary-card"><p class="summary-q">有广告、第三方统计或追踪吗？</p><p class="summary-a">没有。本 App 不含广告 SDK、分析 SDK，也不进行跨 App 追踪。</p></div><div class="summary-card"><p class="summary-q">会出售或共享我的数据吗？</p><p class="summary-a">不会。我们不出售、不出租、不交易你的数据。</p></div><div class="summary-card"><p class="summary-q">如何删除数据？</p><p class="summary-a">在 App 内删除任务或撤销打卡，或直接卸载本 App。</p></div><div class="summary-card"><p class="summary-q">儿童可以使用吗？</p><p class="summary-a">可以。本 App 无账号、无社交、无广告，建议在家长指导下使用。</p></div></div></section><section class="policy-section" aria-labelledby="s2"><h2 id="s2">1. 适用范围</h2><p>本政策适用于「星火自律」iOS App 及其后续版本，涵盖你在使用本 App 时涉及的本地数据处理、麦克风与语音识别权限，以及你与我们联系时产生的信息。</p><p>本政策<strong>不适用</strong>于：</p><ul><li>Apple 通过 iOS 提供的系统服务，包括语音识别、iCloud 备份、App Store 下载与购买等。这些服务由 Apple 依其自身的隐私政策处理，我们无法控制。</li><li>你通过其他渠道访问的第三方网站或服务。</li></ul><p>本 App 当前仅提供简体中文界面，面向 iPhone、iOS 17.0 及以上版本。</p></section><section class="policy-section" aria-labelledby="s3"><h2 id="s3">2. 运营者与联系方式</h2><p>本 App 的运营者为 Lisen。就本政策涉及的个人信息处理，数据控制者（或个人信息处理者）为该运营者。</p><ul><li>联系邮箱：senlee07@gmail.com</li><li>响应时间：我们会在收到请求后 <strong>15 个工作日</strong>内回复。</li></ul><p>如果你未满 14 周岁，请由父母或其他监护人代为联系我们。</p></section><section class="policy-section" aria-labelledby="s4"><h2 id="s4">3. 我们处理哪些信息</h2><h3 id="s4-1">3.1 仅保存在你设备上的习惯数据</h3><p>为了实现打卡与统计功能，本 App 会在你的设备本地创建并维护一个数据文件（<code>Library/Application Support/HabitRocket/habit-data.json</code>），其中可能包含：</p><div class="table-wrap"><table><thead><tr><th scope="col">数据类别</th><th scope="col">具体内容</th><th scope="col">处理目的</th><th scope="col">是否离开设备</th></tr></thead><tbody><tr><td>习惯任务</td><td>任务名称、好习惯/坏习惯类型、单次分值、每日次数上限、生效星期、图标与颜色</td><td>展示今日任务、计算得分</td><td>否</td></tr><tr><td>打卡记录</td><td>任务标识、打卡日期、打卡时间、打卡时的分值快照</td><td>计分、日/周/月统计、撤销打卡</td><td>否</td></tr><tr><td>本地汇总</td><td>根据上述数据即时计算的分数、完成率等</td><td>在首页与统计页展示</td><td>否</td></tr><tr><td>故障隔离文件</td><td>数据文件损坏时保留的原文件副本</td><td>排查问题、尽量避免数据丢失</td><td>否</td></tr></tbody></table></div><p>上述数据由你自行创建和管理。任务名称由你自由填写，可能包含你或他人的个人信息（例如“给妈妈打电话”），请避免写入不必要的敏感信息。<strong>我们不会接收、上传、备份或访问这些数据。</strong></p><p>本 App 的每日目标分数为固定值，不属于你的个人设置；本 App 也不收集你的 Apple ID、手机号、通讯录、位置或照片。</p><h3 id="s4-2">3.2 麦克风与语音识别</h3><p>只有当你主动进入“语音打卡”页面时，本 App 才会请求麦克风和语音识别权限；两项权限都获得授权后，录音才会开始。</p><ul><li><strong>录音用途：</strong> 采集你所说的内容，交由 Apple <code>Speech</code> 框架转换为文字，用于匹配今天的习惯任务。</li><li><strong>是否保存录音：</strong> 不保存。音频缓冲区仅实时传给系统识别请求，不会写入 App 沙盒，也不会生成音频文件。</li><li><strong>识别文本：</strong> 识别结果仅保存在内存中，用于当次匹配与页面展示；离开语音页面或取消后即被丢弃，不会写入 <code>habit-data.json</code>，也不会回传给我们。</li><li><strong>识别提示词：</strong> 为提高识别准确率，本 App 会把<strong>今天生效的好习惯名称</strong>作为提示词（<code>contextualStrings</code>）传入本次识别请求。若 Apple 在服务器端完成识别，这些任务名称可能随请求一并传输。除此之外，不会附加你的历史打卡、统计或其他数据。</li><li><strong>匹配与确认：</strong> 任务匹配在本机完成。即使匹配成功，也必须由你点击确认后才会写入打卡记录。</li><li><strong>谁在处理：</strong> 语音识别由 Apple 提供，可能在本机完成，也可能需要联网并由 Apple 服务器处理。Apple 对语音数据的处理（包括是否用于改进其服务）适用 <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 隐私政策</a>，我们无法访问或控制。</li><li><strong>拒绝授权的后果：</strong> 你可以拒绝麦克风或语音识别权限，也可以随时在系统设置中关闭。拒绝后仍可使用手动方式完成打卡，不影响其他功能。</li></ul><h3 id="s4-3">3.3 Apple 提供的商店、诊断与备份服务</h3><ul><li><strong>App Store：</strong> 本 App 通过 App Store 分发。下载、更新、评分以及任何购买行为由 Apple 处理，我们不会获取你的 Apple ID、支付方式或账单信息。</li><li><strong>网络信息：</strong> 语音识别等 Apple 系统服务在联网时，可能由 Apple 按其隐私政策处理网络信息（如 IP 地址）；我们不会收到这些信息。</li><li><strong>崩溃与使用统计：</strong> 如果你在 iOS 设置中选择与开发者共享分析数据，Apple 可能向我们提供崩溃日志、设备型号、系统版本、App 版本等不含直接身份标识的信息。我们仅用于定位故障和改进稳定性，不会将其与你的习惯数据关联。你可以随时在“设置 &gt; 隐私与安全性 &gt; 分析与改进”中关闭共享。</li><li><strong>设备备份：</strong> 如果你开启了 iCloud 云备份或电脑备份，iOS 可能将本 App 的沙盒数据纳入备份。该备份由你与 Apple（或你的电脑）控制，我们无法访问。你可以通过关闭备份或删除备份来管理这些副本。</li></ul><h3 id="s4-4">3.4 我们不会收集的信息</h3><p>我们不会通过本 App 收集或请求以下信息：</p><ul><li>精确或粗略位置；</li><li>通讯录、日历、照片、相机、健康与健身数据；</li><li>姓名、手机号、邮箱、住址、身份证件信息；</li><li>Apple ID、账号密码或支付信息；</li><li>广告标识符（IDFA）、设备唯一标识符或 IP 地址；</li><li>你的浏览记录、搜索记录、跨 App 使用行为；</li><li>生物识别信息（面容 ID、指纹等由 iOS 在安全隔区处理，本 App 无法访问）。</li></ul><p>本 App 不含第三方广告 SDK、第三方分析 SDK、社交登录或跨 App 追踪技术，也不使用 Cookie（原生 App 不适用）。我们不会建立用户画像，不会投放定向广告，也不会使用你的数据训练人工智能模型。</p><h3 id="s4-5">3.5 你主动联系我们时</h3><p>如果你通过邮件联系我们，我们会收到你的邮箱地址、邮件内容以及你主动提供的其他信息。我们仅将这些信息用于回复咨询、处理权利请求或排查问题，并在事项处理完毕后 <strong>12 个月</strong>内删除或匿名化，法律另有要求的除外。</p></section><section class="policy-section" aria-labelledby="s5"><h2 id="s5">4. 系统权限说明</h2><div class="table-wrap"><table><thead><tr><th scope="col">权限</th><th scope="col">用途</th><th scope="col">何时请求</th><th scope="col">拒绝后的影响</th></tr></thead><tbody><tr><td>麦克风</td><td>采集语音以完成语音打卡</td><td>首次进入语音打卡页面</td><td>无法使用语音打卡，可手动打卡</td></tr><tr><td>语音识别</td><td>将语音转换为文字</td><td>首次进入语音打卡页面</td><td>无法使用语音打卡，可手动打卡</td></tr><tr><td>通知</td><td>本版本未使用</td><td>不请求</td><td>无</td></tr><tr><td>相册、相机、位置、通讯录</td><td>本版本未使用</td><td>不请求</td><td>无</td></tr></tbody></table></div><p>你可以随时在以下位置管理权限：</p><ul><li>麦克风：设置 &gt; 隐私与安全性 &gt; 麦克风 &gt; 星火自律</li><li>语音识别：设置 &gt; 隐私与安全性 &gt; 语音识别 &gt; 星火自律</li></ul><p>撤回权限不影响此前基于你的授权已完成的本地处理，但会导致语音打卡不可用。</p></section><section class="policy-section" aria-labelledby="s6"><h2 id="s6">5. 处理目的与法律依据</h2><p>我们处理信息的目的仅限于：</p><ol><li>在你设备上提供习惯记录、计分与统计功能；</li><li>在你授权后提供语音识别与语音打卡；</li><li>回复你的咨询、处理你的权利请求；</li><li>在 Apple 提供的前提下，定位崩溃与改进稳定性。</li></ol><p>对应的法律依据（按适用法域）：</p><ul><li><strong>中华人民共和国《个人信息保护法》：</strong> 本 App 运行过程中的习惯数据仅在你设备本地处理，我们不会收集；语音识别基于你的同意（通过系统权限弹窗作出）；未满 14 周岁的用户应在监护人同意和指导下使用。</li><li><strong>欧盟/英国《通用数据保护条例》：</strong> 语音处理基于你的同意（可随时撤回）；回复咨询基于你的请求或我们的合法利益；我们不进行自动化决策或画像。</li><li><strong>美国加利福尼亚州《消费者隐私法》：</strong> 我们不出售、不出租、不共享你的个人信息，也不提供任何针对个人信息的财务激励。</li></ul><p>若你所在司法辖区的法律赋予你额外权利，本政策不限制这些权利。</p></section><section class="policy-section" aria-labelledby="s7"><h2 id="s7">6. 共享、转让与公开披露</h2><p>我们<strong>不会出售、出租、交易或共享</strong>你的习惯数据、打卡记录或语音内容，原因很简单：这些数据只在你设备上，我们并不持有。</p><p>仅在以下有限情形下，信息可能被处理：</p><ul><li><strong>Apple 系统服务：</strong> 语音识别、App Store、iCloud 备份由 Apple 提供，适用 Apple 的隐私政策。</li><li><strong>邮件服务商：</strong> 你主动发送邮件时，邮件可能经由我们使用的邮件服务商传输和存储；我们要求其仅用于通信目的。</li><li><strong>法律要求：</strong> 如法律法规、司法或行政机关依法提出要求，我们会在核验合法性后提供我们所持有的信息（通常仅限于你主动发送的邮件），法律禁止通知的除外。</li><li><strong>业务变更：</strong> 如发生合并、收购或资产转让，相关联系信息可能随之转移；我们会要求接收方继续受本政策约束，并在变更前以显著方式通知你。</li></ul><p>本 App 不集成任何第三方 SDK，因此不存在向第三方 SDK 共享数据的情形。</p><p>如我们委托邮件服务商处理你的联系信息，我们会要求其提供与本政策同等水平的保护，并仅按我们的指示处理。我们不会将你的 App 内数据用于本政策未载明的目的。</p></section><section class="policy-section" aria-labelledby="s8"><h2 id="s8">7. 存储地点与保存期限</h2><ul><li><strong>存储地点：</strong> 本 App 的习惯数据仅存储在你的设备本地，我们不设开发者服务器，也不会将上述数据跨境传输。</li><li><strong>保存期限：</strong> 数据保存至你主动删除或卸载本 App。卸载 App 会删除其沙盒内的数据；系统备份中的副本由你和 Apple 按其备份策略管理，可能在你卸载后继续存在一段时间。</li><li><strong>损坏文件副本：</strong> 当数据文件损坏时，本 App 会在同一目录保留一份隔离副本，便于排查；该副本同样只在本机，随 App 卸载而删除。</li><li><strong>联系邮件：</strong> 自事项处理完毕之日起保存不超过 12 个月，法律另有要求的除外。</li><li><strong>无账号注销：</strong> 本 App 没有账号体系，因此不存在“账号注销”流程；删除数据请使用第 9 节所述方式。</li></ul></section><section class="policy-section" aria-labelledby="s9"><h2 id="s9">8. 数据安全</h2><p>我们采取以下措施保护你的数据：</p><ul><li>数据保存在 iOS 应用沙盒内，其他 App 无法直接读取；</li><li>依赖 iOS 的数据保护机制，设备锁定时数据处于加密状态；</li><li>本 App 不上传习惯数据，减少了网络传输带来的泄露风险；</li><li>我们不申请与功能无关的权限，不引入第三方 SDK。</li></ul><p>但请注意：</p><ul><li>任何技术措施都无法保证绝对安全。若你的设备丢失、被他人解锁或越狱，设备上的数据可能被查看。</li><li>本 App 当前不提供独立的应用锁或密码保护，建议你为 iPhone 设置强密码并开启面容 ID。</li><li>如你与我们有过邮件往来，请避免在邮件中发送不必要的敏感信息。</li></ul><p>如发生涉及你个人信息的安全事件，我们会按适用法律的要求，通过 App 更新说明、App Store 页面或邮件告知你，并说明可采取的补救措施。</p></section><section class="policy-section" aria-labelledby="s10"><h2 id="s10">9. 你的权利</h2><p>在适用法律范围内，你享有以下权利：</p><div class="table-wrap"><table><thead><tr><th scope="col">权利</th><th scope="col">如何行使</th></tr></thead><tbody><tr><td>查阅、复制</td><td>在 App 首页、统计页、任务页查看你的数据。当前版本不提供导出功能；如需协助，可联系我们。</td></tr><tr><td>更正</td><td>在任务页编辑任务名称、分值、上限、生效星期等。打卡历史保留当时的分数快照，修改任务分值不会改写历史统计，这是为了避免破坏既有记录。</td></tr><tr><td>删除</td><td>删除任务会同时删除该任务的历史打卡；在首页长按已完成的打卡卡片可撤销当天最后一次记录；卸载 App 可删除全部本地数据。</td></tr><tr><td>撤回同意</td><td>在系统设置中关闭麦克风或语音识别权限，或不再使用语音打卡。</td></tr><tr><td>限制或拒绝处理</td><td>不进入语音打卡页面、不授予权限即可；其余功能不受影响。</td></tr><tr><td>要求解释</td><td>可通过 senlee07@gmail.com 询问本政策或数据处理规则。</td></tr><tr><td>投诉</td><td>可向所在地个人信息保护监管机构投诉；我们建议你先与我们联系，我们会尽力解决。</td></tr></tbody></table></div><p>我们通常免费处理你的请求，并在 <strong>15 个工作日</strong>内答复。为防止他人冒用你的身份，我们可能要求你提供必要的信息以核验请求；由于我们并不持有你的 App 内数据，多数情况下无需核验即可说明情况。</p><p>父母或其他监护人可代表未满 14 周岁的儿童行使上述权利。</p></section><section class="policy-section" aria-labelledby="s11"><h2 id="s11">10. 儿童隐私</h2><p>本 App 面向小学生及其家长，但我们刻意避免收集儿童个人信息：</p><ul><li>不要求注册账号，不收集姓名、生日、学校、照片或联系方式；</li><li>不含广告、第三方分析、社交或聊天功能，也不会引导儿童离开本 App 访问第三方内容（隐私政策入口除外）；</li><li>当前版本不含应用内购买，不要求儿童提供任何身份信息；</li><li>语音打卡仅在儿童主动操作并授权后启用，录音不保存，识别文本不落盘。</li></ul><p>根据《中华人民共和国个人信息保护法》，处理不满 14 周岁未成年人的个人信息应取得父母或其他监护人的同意。由于本 App 不在服务器端收集儿童个人信息，我们不通过 App 收集此类信息；我们仍建议家长在孩子使用前阅读本政策，并指导孩子合理使用。</p><p>就美国《儿童在线隐私保护法》（COPPA）而言，本 App 不通过应用收集 13 岁以下儿童的个人信息，因此不需要验证父母同意；如未来功能变化导致收集，我们会先取得可验证的监护人同意。</p><p>如果你是家长或监护人，对孩子的使用有疑问，或认为我们持有了儿童的个人信息（例如你曾发送邮件），请联系 senlee07@gmail.com，我们会核实并删除。</p><p>如果本 App 上架 Apple 儿童类别（Kids Category），我们将遵守 Apple 对该类别的额外要求，包括不集成第三方分析或广告、不进行行为追踪。</p></section><section class="policy-section" aria-labelledby="s12"><h2 id="s12">11. 第三方服务</h2><p>本 App 使用以下 Apple 系统能力，相关处理受 Apple 隐私政策约束：</p><div class="table-wrap"><table><thead><tr><th scope="col">服务</th><th scope="col">用途</th><th scope="col">提供方</th><th scope="col">隐私政策</th></tr></thead><tbody><tr><td>Speech / SFSpeechRecognizer</td><td>将语音转换为文字</td><td>Apple</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 隐私政策</a></td></tr><tr><td>App Store</td><td>分发、更新与评价</td><td>Apple</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 隐私政策</a></td></tr><tr><td>iCloud 云备份（如你开启）</td><td>备份设备数据</td><td>Apple</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 隐私政策</a></td></tr></tbody></table></div><p>本 App 不包含其他第三方服务或 SDK；除隐私政策入口外，也不会打开与核心功能无关的第三方网页。语音权限被拒绝时，App 只会跳转到 iOS 系统设置页面，不会打开其他第三方网站。</p><p>如未来版本引入新的第三方服务，我们会在上线前更新本政策，并在 App 内以显著方式提示；如涉及新的处理目的，我们会依法另行取得你的同意。</p></section><section class="policy-section" aria-labelledby="s13"><h2 id="s13">12. 与 App Store 隐私标签的一致性</h2><p>本 App 在 App Store Connect 的“App 隐私”信息中应选择：</p><ul><li><strong>是否收集数据：</strong> 不收集数据；</li><li><strong>是否用于跟踪：</strong> 否。</li></ul><p>理由：本 App 不上传习惯或打卡数据，不集成分析或广告 SDK；语音识别由 Apple 系统框架完成，我们不会保存录音或识别文本，也不会将其回传至服务器或用于本政策未载明的目的。若未来版本的数据实践发生变化，我们会同步更新 App Store 隐私标签和本政策，避免两者不一致。</p></section><section class="policy-section" aria-labelledby="s14"><h2 id="s14">13. 本政策的更新</h2><p>我们可能因功能变化、法律要求或审核意见更新本政策。更新时我们会：</p><ol><li>修改文首的“最后更新”日期和版本号；</li><li>在本 App 的新版本说明或 App 内显著位置提示重大变更；</li><li>如变更涉及新的处理目的或需要重新取得同意，会在你继续使用前依法取得同意。</li></ol><p>你可以在本页面随时查看最新版本。若你不同意更新后的政策，可以停止使用并卸载本 App。历史版本可向 senlee07@gmail.com 索取。</p></section><section class="policy-section" aria-labelledby="s15"><h2 id="s15">14. 联系我们</h2><p>如你对本政策有任何疑问、意见或投诉，或希望行使第 9 节所述权利，请联系：</p><ul><li><strong>运营者：</strong> Lisen</li><li><strong>邮箱：</strong> senlee07@gmail.com</li><li><strong>响应时间：</strong> 15 个工作日内</li></ul><p>我们会在适用法律允许的范围内尽快处理。若你对我们的答复不满意，你有权向所在地个人信息保护监管机构或消费者保护机构投诉。</p></section><section class="policy-section" aria-labelledby="s16"><h2 id="s16">附录：常用操作路径</h2><div class="table-wrap"><table><thead><tr><th scope="col">操作</th><th scope="col">路径</th></tr></thead><tbody><tr><td>关闭麦克风权限</td><td>设置 &gt; 隐私与安全性 &gt; 麦克风 &gt; 星火自律</td></tr><tr><td>关闭语音识别权限</td><td>设置 &gt; 隐私与安全性 &gt; 语音识别 &gt; 星火自律</td></tr><tr><td>关闭分析共享</td><td>设置 &gt; 隐私与安全性 &gt; 分析与改进</td></tr><tr><td>管理 iCloud 备份</td><td>设置 &gt; 你的姓名 &gt; iCloud &gt; iCloud 云备份</td></tr><tr><td>删除单个任务及其历史</td><td>任务页 &gt; 选择任务 &gt; 删除（需二次确认）</td></tr><tr><td>撤销当天最后一次打卡</td><td>首页 &gt; 长按已完成的打卡卡片</td></tr><tr><td>删除全部本地数据</td><td>卸载本 App</td></tr></tbody></table></div><hr><p>本政策以简体中文书写。</p></section>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-brand">
+      <svg class="doc-mark" viewBox="0 0 48 48" aria-hidden="true">
+        <circle cx="24" cy="24" r="10" fill="#F86F4B"/>
+        <ellipse cx="24" cy="24" rx="20" ry="7.5" fill="none" stroke="#2F8F73" stroke-width="2" transform="rotate(-18 24 24)"/>
+      </svg>
+      星火自律 · 隐私政策
+    </p>
+    <p class="footer-meta">
+      <span>版本 1.0</span><span>最后更新于 2026 年 10 月 28 日</span>
+    </p>
+    <a class="back-top" href="#top">返回顶部 ↑</a>
+  </div>
+</footer>
+</body>
+</html>
